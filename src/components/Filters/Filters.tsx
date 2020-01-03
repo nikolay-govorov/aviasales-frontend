@@ -1,11 +1,19 @@
 import React, {useCallback} from "react";
-import {Card} from "../Card/Card";
 
 import "./Filters.css";
+import {Card} from "../Card/Card";
+import {Filter} from "../../core/Filter.type";
 import Checkbox from "../Checkbox/Checkbox";
 
-export default function Filters(): JSX.Element {
-  const onChange = useCallback((ev) => {}, []);
+interface Props {
+  filters: Filter[];
+  onChange: (count: number, value: boolean) => void;
+}
+
+export default function Filters(props: Props): JSX.Element {
+  const onChange = useCallback((ev) => {
+    props.onChange(parseInt(ev.target.value), ev.target.checked);
+  }, [props]);
 
   return (
     <Card>
@@ -13,30 +21,12 @@ export default function Filters(): JSX.Element {
         <legend className="filters_Title">Количество пересадок</legend>
 
         <div className="filters_List">
-          <label className="filters_Item">
-            <Checkbox name="stops" type="checkbox" onChange={onChange} />
-            <span className="filters_ItemLabel">Все</span>
-          </label>
-
-          <label className="filters_Item">
-            <Checkbox name="stops" type="checkbox" onChange={onChange} />
-            <span className="filters_ItemLabel">Без пересадок</span>
-          </label>
-
-          <label className="filters_Item">
-            <Checkbox name="stops" type="checkbox" onChange={onChange} />
-            <span className="filters_ItemLabel">1 пересадка</span>
-          </label>
-
-          <label className="filters_Item">
-            <Checkbox name="stops" type="checkbox" onChange={onChange} />
-            <span className="filters_ItemLabel">2 пересадки</span>
-          </label>
-
-          <label className="filters_Item">
-            <Checkbox name="stops" type="checkbox" onChange={onChange} />
-            <span className="filters_ItemLabel">3 пересадки</span>
-          </label>
+          {props.filters.map(({ count, label, selected }) => (
+            <label key={count} className="filters_Item">
+              <Checkbox name="stops" type="checkbox" checked={selected} onChange={onChange} value={count} />
+              <span className="filters_ItemLabel">{label}</span>
+            </label>
+          ))}
         </div>
       </form>
     </Card>

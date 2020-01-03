@@ -11,7 +11,7 @@ export default function Checkbox({ ...props }: Props): JSX.Element {
     <>
       <input className="checkbox_native" type="checkbox" {...props} />
 
-      <span className="checkbox_visual"></span>
+      <span className="checkbox_visual" />
     </>
   )
 }

@@ -1,31 +1,54 @@
+.layout_Loader {
+  position: absolute;
+  top: 0;
+  left: -100px;
+  right: -100px;
+  height: 4px;
+  will-change: transform;
+  background-size: 228px 32px;
+  background-color: #2196f3;
+  background-image: repeating-linear-gradient(135deg,#90caf9,#90caf9 20px,#2196f3 0,#2196f3 40px);
+  animation: loader-stripes .5s infinite linear;
+}
+
+@keyframes loader-stripes {
+  0% {
+    transform: translateX(0) translateZ(0);
+  }
+  100% {
+    transform: translateX(-56px) translateZ(0);
+  }
+}
+
 .layoutContainer {
   min-height: 100vh;
-  padding-bottom: 28px;
   background-color: var(--color-background);
   display: grid;
-  grid-column-gap: 20px;
+  padding: 20px;
+  grid-gap: 20px;
   justify-content: center;
   grid-template-columns: auto;
   grid-template-rows: auto auto 1fr;
   grid-template-areas:
     "logo"
     "filters"
+    "sort"
     "tickets";
 }
 
 @media (min-width: 768px) {
   .layoutContainer {
     grid-template-columns: auto auto;
-    grid-template-rows: auto auto 1fr;
     grid-template-areas:
-      "logo logo"
+      "logo    logo"
+      "filters sort"
       "filters tickets";
   }
 }
 
 .layoutLogo {
   grid-area: logo;
-  padding: 39px;
+  padding: 19px 0 19px;
   display: flex;
   justify-content: center;
 }
@@ -36,4 +59,9 @@
 
 .layoutTickets {
   grid-area: tickets;
+}
+
+.layoutMessage {
+  padding: 20px;
+  margin-bottom: 20px;
 }
