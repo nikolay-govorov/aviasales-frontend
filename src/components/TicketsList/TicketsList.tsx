@@ -1,19 +1,19 @@
 import React from "react";
-import {ITicket} from "../../core/Ticket";
+import {ITicket} from "../../core/types/Ticket";
 
 import "./TicketsList.css"
 
-import Ticket from "../Ticket/Ticket";
+import {Ticket} from "../Ticket/Ticket";
 
 interface TicketsListProps {
   tickets: ITicket[],
 }
 
-export default function TicketsList({ tickets }: TicketsListProps): JSX.Element {
+export function TicketsList({ tickets }: TicketsListProps): JSX.Element {
   return (
     <ul className="ticketsList_List">
       {tickets.map((ticket: ITicket, i: number) => (
-        <li key={i} className="ticketsList_Item">
+        <li key={ticket.price + ticket.carrier + ticket.segments.length} className="ticketsList_Item">
           <Ticket ticket={ticket} />
         </li>
       ))}

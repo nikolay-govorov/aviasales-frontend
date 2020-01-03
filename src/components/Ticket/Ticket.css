@@ -38,8 +38,6 @@
   grid-template-columns: repeat(3, 1fr);
 }
 
-.ticketSegment_Record {}
-
 .ticketSegment_RecordTitle {
   font-weight: 600;
   font-size: 12px;

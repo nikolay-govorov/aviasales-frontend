@@ -3,7 +3,7 @@ import React from "react";
 import "./Ticket.css";
 
 import {Card} from "../Card/Card";
-import {ITicket, ITicketSegment} from "../../core/Ticket";
+import {ITicket, ITicketSegment} from "../../core/types/Ticket";
 import {plural} from "../../core/lib/plural";
 import {formatPrice} from "../../core/lib/formatPrice";
 import {formatTimeDuration, formatTimePeriod} from "../../core/lib/formatTime";
@@ -21,17 +21,17 @@ function TicketSegment({ segment }: TicketSegmentProps) {
 
   return (
     <dl className="ticketSegment_Container">
-      <div className="ticketSegment_Record">
+      <div>
         <dt className="ticketSegment_RecordTitle">{segment.origin} – {segment.destination}</dt>
         <dd className="ticketSegment_RecordValue">{formatTimePeriod(segment.date, segment.duration)}</dd>
       </div>
 
-      <div className="ticketSegment_Record">
+      <div>
         <dt className="ticketSegment_RecordTitle">В пути</dt>
         <dd className="ticketSegment_RecordValue">{formatTimeDuration(segment.duration)}</dd>
       </div>
 
-      <div className="ticketSegment_Record">
+      <div>
         <dt className="ticketSegment_RecordTitle">{stopsPlural(segment.stops.length)}</dt>
         <dd className="ticketSegment_RecordValue">{segment.stops.join(", ") || "-"}</dd>
       </div>
@@ -39,7 +39,7 @@ function TicketSegment({ segment }: TicketSegmentProps) {
   );
 }
 
-const Ticket = React.memo(function({ ticket }: TicketProps): JSX.Element {
+export const Ticket = React.memo(function({ ticket }: TicketProps): JSX.Element {
   return (
     <Card>
       <section className="ticket_Container">
@@ -64,5 +64,3 @@ const Ticket = React.memo(function({ ticket }: TicketProps): JSX.Element {
     </Card>
   )
 });
-
-export default Ticket;

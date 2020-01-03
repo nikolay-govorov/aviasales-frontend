@@ -20,7 +20,7 @@
   }
 }
 
-.layoutContainer {
+.layout_Container {
   min-height: 100vh;
   background-color: var(--color-background);
   display: grid;
@@ -37,8 +37,8 @@
 }
 
 @media (min-width: 768px) {
-  .layoutContainer {
-    grid-template-columns: auto auto;
+  .layout_Container {
+    grid-template-columns: auto minmax(auto, 502px);
     grid-template-areas:
       "logo    logo"
       "filters sort"
@@ -46,22 +46,22 @@
   }
 }
 
-.layoutLogo {
+.layout_Logo {
   grid-area: logo;
   padding: 19px 0 19px;
   display: flex;
   justify-content: center;
 }
 
-.layoutFilters {
+.layout_Filters {
   grid-area: filters;
 }
 
-.layoutTickets {
+.layout_Tickets {
   grid-area: tickets;
 }
 
-.layoutMessage {
+.layout_Message {
   padding: 20px;
   margin-bottom: 20px;
 }

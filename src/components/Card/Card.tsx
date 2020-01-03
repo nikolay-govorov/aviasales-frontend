@@ -8,6 +8,6 @@ interface Props {
 
 export function Card({ children }: Props): JSX.Element {
   return (
-    <div className="cardContainer">{children}</div>
+    <div className="card_Container">{children}</div>
   );
 }

@@ -7,6 +7,7 @@ import {Card} from "../Card/Card";
 interface Props {
   loading: boolean;
   fail: boolean;
+  noFiltered: boolean;
 
   filters: JSX.Element;
   sort: JSX.Element;
@@ -16,14 +17,15 @@ interface Props {
 function LayoutMessage({ children }: { children: JSX.Element | string }): JSX.Element {
   return (
     <Card>
-      <div className="layoutMessage">{children}</div>
+      <div className="layout_Message">{children}</div>
     </Card>
   );
 }
 
-export default function Layout({
+export function Layout({
   loading,
   fail,
+  noFiltered,
   filters,
   sort,
   tickets
@@ -34,18 +36,20 @@ export default function Layout({
         <div className="layout_Loader" aria-label="Ищем билеты..." />
       ) : null}
 
-      <div className="layoutContainer">
-        <div className="layoutLogo">
+      <div className="layout_Container">
+        <div className="layout_Logo">
           <Logo />
         </div>
 
-        <div className="layoutFilters">{filters}</div>
+        <div className="layout_Filters">{filters}</div>
 
         <div className="layoutSort">{sort}</div>
 
-        <div className="layoutTickets">
+        <div className="layout_Tickets">
           {fail ? (
             <LayoutMessage>Не удалось загрузить билеты. Попробуйте перезагрузить страницу, или попробовать позже</LayoutMessage>
+          ) : noFiltered ? (
+            <LayoutMessage>Ни один из рейсов не соответствует заданным фильтрам.</LayoutMessage>
           ) : tickets}
         </div>
       </div>

@@ -2,15 +2,15 @@ import React, {useCallback} from "react";
 
 import "./Filters.css";
 import {Card} from "../Card/Card";
-import {Filter} from "../../core/Filter.type";
-import Checkbox from "../Checkbox/Checkbox";
+import {Filter} from "../../core/types/Filter";
+import {Checkbox} from "../Checkbox/Checkbox";
 
 interface Props {
   filters: Filter[];
   onChange: (count: number, value: boolean) => void;
 }
 
-export default function Filters(props: Props): JSX.Element {
+export function Filters(props: Props): JSX.Element {
   const onChange = useCallback((ev) => {
     props.onChange(parseInt(ev.target.value), ev.target.checked);
   }, [props]);

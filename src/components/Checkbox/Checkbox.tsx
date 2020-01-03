@@ -6,12 +6,12 @@ interface Props {
   [key: string]: any
 }
 
-export default function Checkbox({ ...props }: Props): JSX.Element {
+export function Checkbox({ ...props }: Props): JSX.Element {
   return (
     <>
-      <input className="checkbox_native" type="checkbox" {...props} />
+      <input className="checkbox_Native" type="checkbox" {...props} />
 
-      <span className="checkbox_visual" />
+      <span className="checkbox_Visual" />
     </>
   )
 }

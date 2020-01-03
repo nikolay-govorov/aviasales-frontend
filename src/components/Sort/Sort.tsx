@@ -2,17 +2,17 @@ import React, {useCallback} from "react";
 
 import "./Sort.css";
 
-import { SortType } from "../../core/Sort.type";
+import { SortType } from "../../core/types/Sort.type";
 
 interface Props {
   onChange: (type: SortType) => void;
 }
 
-export default function Sort(props: Props) {
+export function Sort(props: Props) {
   const onChange = useCallback((ev) => props.onChange(ev.target.value as SortType), [props]);
 
   return (
-    <div className="ticketList_sortContainer">
+    <div className="ticketList_SortContainer">
       <label className="ticketsList_SortButton">
         <input
           className="ticketsList_SortCheckbox"
