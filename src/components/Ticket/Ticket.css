@@ -1,0 +1,57 @@
+.ticket_Container {
+  padding: 20px;
+  grid-gap: 20px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr max-content;
+  grid-template-areas:
+    "price carrier-logo"
+    "segments segments";
+}
+
+.ticket_Price {
+  margin: 0;
+  grid-area: price;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 24px;
+  color: #2196F3;
+}
+
+.ticket_CarrierLogo {
+  grid-area: carrier-logo;
+}
+
+.ticket_SegmentsList {
+  grid-area: segments;
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-gap: 10px;
+}
+
+/* Segment */
+.ticketSegment_Container {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.ticketSegment_Record {}
+
+.ticketSegment_RecordTitle {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #A0B0B9;
+}
+
+.ticketSegment_RecordValue {
+  margin: 0;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  color: #4A4A4A;
+}

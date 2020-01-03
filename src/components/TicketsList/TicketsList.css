@@ -1,0 +1,12 @@
+.ticketsList_List {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: minmax(auto, 502px);
+  grid-template-rows: repeat(auto-fill, max-content);
+}
+
+.ticketsList_Item {
+  list-style: none;
+}
