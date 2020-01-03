@@ -25,7 +25,7 @@
 
 .layoutLogo {
   grid-area: logo;
-  padding: 28px;
+  padding: 39px;
   display: flex;
   justify-content: center;
 }

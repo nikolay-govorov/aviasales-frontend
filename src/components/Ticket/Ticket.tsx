@@ -17,7 +17,7 @@ interface TicketProps {
 }
 
 function TicketSegment({ segment }: TicketSegmentProps) {
-  const stopsPlural = plural(["пересадка", "пересадки", "пересадок"], "прямой");
+  const stopsPlural = plural(["пересадка", "пересадки", "пересадок"], "Без пересадок");
 
   return (
     <dl className="ticketSegment_Container">

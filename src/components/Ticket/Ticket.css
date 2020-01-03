@@ -33,6 +33,7 @@
 /* Segment */
 .ticketSegment_Container {
   display: grid;
+  margin: 0;
   grid-gap: 20px;
   grid-template-columns: repeat(3, 1fr);
 }
