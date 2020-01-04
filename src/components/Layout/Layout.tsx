@@ -3,6 +3,7 @@ import React from "react";
 import "./Layout.css";
 import { Logo } from "../Logo/Logo";
 import {Card} from "../Card/Card";
+import {VisuallyHidden} from "../VisuallyHidden/VisuallyHidden";
 
 interface Props {
   loading: boolean;
@@ -40,6 +41,10 @@ export function Layout({
         <div className="layout_Logo">
           <Logo />
         </div>
+
+        <VisuallyHidden>
+          <h1>Поиск билетов на aviasales</h1>
+        </VisuallyHidden>
 
         <div className="layout_Filters">{filters}</div>
 

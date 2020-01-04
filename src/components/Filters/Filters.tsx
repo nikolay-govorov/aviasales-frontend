@@ -4,6 +4,7 @@ import "./Filters.css";
 import {Card} from "../Card/Card";
 import {Filter} from "../../core/types/Filter";
 import {Checkbox} from "../Checkbox/Checkbox";
+import {VisuallyHidden} from "../VisuallyHidden/VisuallyHidden";
 
 interface Props {
   filters: Filter[];
@@ -17,6 +18,10 @@ export function Filters(props: Props): JSX.Element {
 
   return (
     <Card>
+      <VisuallyHidden>
+        <h2>Фильтры</h2>
+      </VisuallyHidden>
+
       <form className="filters_Container">
         <legend className="filters_Title">Количество пересадок</legend>
 
