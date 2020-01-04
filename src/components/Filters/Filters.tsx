@@ -11,7 +11,7 @@ interface Props {
   onChange: (count: number, value: boolean) => void;
 }
 
-export function Filters(props: Props): JSX.Element {
+export const Filters = React.memo(function Filters(props: Props): JSX.Element {
   const onChange = useCallback((ev) => {
     props.onChange(parseInt(ev.target.value), ev.target.checked);
   }, [props]);
@@ -36,4 +36,4 @@ export function Filters(props: Props): JSX.Element {
       </form>
     </Card>
   )
-}
+});

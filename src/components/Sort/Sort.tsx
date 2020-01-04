@@ -8,7 +8,7 @@ interface Props {
   onChange: (type: SortType) => void;
 }
 
-export function Sort(props: Props) {
+export const Sort = React.memo(function Sort(props: Props) {
   const onChange = useCallback((ev) => props.onChange(ev.target.value as SortType), [props]);
 
   return (
@@ -37,4 +37,4 @@ export function Sort(props: Props) {
       </label>
     </div>
   );
-}
+});

@@ -10,7 +10,7 @@ interface TicketsListProps {
   tickets: ITicket[],
 }
 
-export function TicketsList({ tickets }: TicketsListProps): JSX.Element {
+export const TicketsList = React.memo(function TicketsList({ tickets }: TicketsListProps): JSX.Element {
   return (
     <>
       <VisuallyHidden>
@@ -26,4 +26,4 @@ export function TicketsList({ tickets }: TicketsListProps): JSX.Element {
       </ul>
     </>
   )
-}
+});
