@@ -1,5 +1,5 @@
 .layout_Loader {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: -100px;
   right: -100px;

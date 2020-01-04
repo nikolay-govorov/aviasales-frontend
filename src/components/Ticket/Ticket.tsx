@@ -49,7 +49,7 @@ export const Ticket = React.memo(function({ ticket }: TicketProps): JSX.Element 
           width={110}
           height={36}
           className="ticket_CarrierLogo"
-          src={`//pics.avs.io/99/36/${ticket.carrier}.png`}
+          src={`https://pics.avs.io/99/36/${ticket.carrier}.png`}
           alt={`${ticket.carrier} logo`}
         />
 
