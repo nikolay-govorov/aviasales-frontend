@@ -1,6 +1,6 @@
-import {interval, Observable} from "rxjs";
+import {Observable} from "rxjs";
 import {fromFetch} from 'rxjs/fetch';
-import {pluck, retry, scan, switchMap, takeWhile} from "rxjs/operators";
+import {pluck, repeat, retry, scan, switchMap, takeWhile} from "rxjs/operators";
 
 import {ITicket} from "../types/Ticket";
 import {SortType} from "../types/Sort.type";
@@ -29,8 +29,8 @@ export function loadTickets(): Observable<ITicket[]> {
   return fetch<ResponseSearch>(`${API_URL}/search`)
     .pipe(
       pluck("searchId"),
-      switchMap(searchId => interval(200).pipe(
-        switchMap(() => fetch<ResponseTicketPool>(`${API_URL}/tickets?searchId=${searchId}`)),
+      switchMap(searchId => fetch<ResponseTicketPool>(`${API_URL}/tickets?searchId=${searchId}`).pipe(
+        repeat(),
         takeWhile(({ stop }) => !stop, true),
       )),
       scan((acc, { tickets }) => acc.concat(tickets || []), [] as ITicket[]),
